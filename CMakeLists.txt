@@ -177,6 +177,7 @@ add_library(
   MurmurHash1.cpp
   MurmurHash2.cpp
   MurmurHash3.cpp
+  pearson_hash.cpp
   Platform.cpp
   Random.cpp
   sha1.cpp

@@ -17,6 +17,8 @@
 #include "jody_hash32.h"
 #include "jody_hash64.h"
 
+#include "pearson_hash.h"
+
 //----------
 // These are _not_ hash functions (even though people tend to use crc32 as one...)
 
@@ -226,3 +228,11 @@ inline void t1ha_aes_test(const void * key, int len, uint32_t seed, void * out)
   *(uint64_t*)out = t1ha_ia32aes(key, len, seed);
 }
 #endif
+
+inline void pearson_hash_test(const void * key, int len, uint32_t seed, void * out)
+{
+    uint64_t init[2] = {seed,seed};
+    unsigned ulength = static_cast<unsigned>(len);
+    char * charkey = (char*)(key);
+    pearson128((uint64_t*)out, init, charkey, ulength);
+}

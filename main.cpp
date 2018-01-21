@@ -211,6 +211,7 @@ HashInfo g_hashes[] =
 #if defined(__AES__) || defined(_M_X64) || defined(_M_IX86)
   { t1ha_aes_test,              64, 0x54BBFF21, "t1ha_aes",          "Fast Positive Hash (machine-specific, requires: AES-NI)" },
 #endif
+    { pearson_hash_test, 128, 0x5AA86F6C, "pearson_hash", "http://calypsosfarewell.blogspot.com/2018/01/toy-code-hand-crafting-good-hash.html"},
 };
 
 HashInfo * findHash ( const char * name )
