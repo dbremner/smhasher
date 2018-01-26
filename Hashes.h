@@ -17,6 +17,9 @@
 #include "jody_hash32.h"
 #include "jody_hash64.h"
 
+#include "dolphinvm_linearcongruentialhash.h"
+#include "dolphinvm_diffusionhash.h"
+
 //----------
 // These are _not_ hash functions (even though people tend to use crc32 as one...)
 
@@ -226,3 +229,16 @@ inline void t1ha_aes_test(const void * key, int len, uint32_t seed, void * out)
   *(uint64_t*)out = t1ha_ia32aes(key, len, seed);
 }
 #endif
+
+inline void dolphin_linearhash(const void * key, int len, uint32_t seed, void * out)
+{
+    uint8_t *bytes = (uint8_t*) key;
+    *(uint32_t*)out = LinearCongruentialHash(bytes, len);
+}
+
+inline void dolphin_diffusionhash(const void * key, int len, uint32_t seed, void * out)
+{
+    uint8_t *bytes = (uint8_t*) key;
+    *(uint32_t*)out = DiffusionHash(bytes, len);
+    
+}

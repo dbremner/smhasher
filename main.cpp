@@ -211,6 +211,8 @@ HashInfo g_hashes[] =
 #if defined(__AES__) || defined(_M_X64) || defined(_M_IX86)
   { t1ha_aes_test,              64, 0x54BBFF21, "t1ha_aes",          "Fast Positive Hash (machine-specific, requires: AES-NI)" },
 #endif
+    {dolphin_linearhash, 32, 0x0100B78E, "dolphin_linearhash", "copied from the Dolphin Smalltalk VM"},
+    {dolphin_diffusionhash, 32, 0x1BA0D142, "dolphin_diffusionhash", "copied from the Dolphin Smalltalk VM"}
 };
 
 HashInfo * findHash ( const char * name )

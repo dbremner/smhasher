@@ -167,6 +167,7 @@ add_library(
   City.cpp
   crc.cpp
   DifferentialTest.cpp
+  dolphinvm_diffusionhash.cpp
   Hashes.cpp
   ${SSE2_SRC}
   ${SSE4_SRC}
